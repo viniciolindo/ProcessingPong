@@ -36,6 +36,17 @@ class Ball {
     fill(currentColor);
     circle(posX, posY, size);
   }
+  
+  void checkPlayer(Player p){
+  
+    if  ( posX - size*0.5 < p.x + p.w*0.5 && posX + size*0.5 > p.x - p.w*0.5 
+    && posY - size*0.5 < p.y + p.h*0.5 && posY + size*0.5 > p.y - p.h*0.5 ) {
+    
+        velX = -velX;
+        velY = -velY;
+    }
+    
+  }
 
   boolean checkBall(Ball b) {
 

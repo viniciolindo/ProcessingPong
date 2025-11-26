@@ -37,5 +37,7 @@ void draw() {
   
   // Qui disegneresti la pallina...
   b.update();
+  b.checkPlayer(p1);
+  b.checkPlayer(p2);
   b.display();
 }
