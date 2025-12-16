@@ -14,20 +14,30 @@ class Ball {
     defColor = _c;
     currentColor = defColor;
     size = _s;
-    posX = random(0, width);
-    posY = random(0, height);
+    start();
+  }
+  
+  void start(){
     velX = random(-5, 5);
     velY = random(-5, 5);
+    posX = width/2;
+    posY = height/2;
+  
   }
 
   void update() {
 
     posX += velX;
     posY += velY;
-    if ( posX > width || posX < 0 ) {
-      velX = -velX;
+    if ( posX > width  ) {
+      println("gol player 1");
+      start();
     }
-    if ( posY > height || posY < 0 ) {
+    else if ( posX < 0 ){
+      println("gol player 2");
+     start();
+    }
+    if ( posY > height - size*0.5 || posY < size*0.5 ) {
       velY = -velY;
     }
   }
@@ -39,28 +49,9 @@ class Ball {
   
   void checkPlayer(Player p){
   
-    if  ( posX - size*0.5 < p.x + p.w*0.5 && posX + size*0.5 > p.x - p.w*0.5 
-    && posY - size*0.5 < p.y + p.h*0.5 && posY + size*0.5 > p.y - p.h*0.5 ) {
-    
+    if ( abs( posX - p.x ) < p.w *0.5 + size*0.5 && abs(posY -p.y ) < p.h*0.5 + size*0.5 ){
         velX = -velX;
-        velY = -velY;
     }
     
-  }
-
-  boolean checkBall(Ball b) {
-
-    float dist = dist(posX, posY, b.posX, b.posY);
-    
-    if ( dist < size*0.5 + b.size*0.5 ) {
-      currentColor = color(255, 0, 0);
-      velX = -velX;
-      velY = -velY;
-      return true;
-      
-    } else {
-      currentColor = defColor;
-      return false;
-    }
   }
 }
