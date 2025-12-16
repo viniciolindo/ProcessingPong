@@ -25,7 +25,7 @@ Per eseguire il codice, avrai bisogno dell'ambiente di sviluppo di Processing.
 
 1.  **Clona o Scarica il Codice Sorgente:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[Il-Tuo-Utente]/[Nome-Del-Progetto].git
+    git clone https://github.com/viniciolindo/ProcessingPong.git
     ```
 2.  **Apri lo Sketch:**
     * Apri l'**IDE di Processing**.
